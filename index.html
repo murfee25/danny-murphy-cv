@@ -9,186 +9,204 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         body { font-family: 'Inter', system-ui, sans-serif; }
-        .print\\:hidden { display: none; }
+        .section { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .section.visible { opacity: 1; transform: translateY(0); }
+        .job-card { transition: all 0.3s ease; }
+        .job-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen">
-    <div class="max-w-4xl mx-auto p-6">
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100">
+    <div class="max-w-5xl mx-auto p-6 md:p-8">
+        
         <!-- Header -->
-        <header class="flex justify-between items-start mb-8">
+        <header class="flex flex-col md:flex-row justify-between items-start gap-6 mb-12">
             <div>
-                <h1 class="text-5xl font-bold tracking-tight">Danny Murphy</h1>
-                <p class="text-2xl text-blue-600 dark:text-blue-400 mt-1">Full Stack Developer</p>
-                <div class="mt-4 flex flex-wrap gap-4 text-sm">
-                    <p>📍 Charvil, Reading, RG10 9QF</p>
-                    <p>📱 +44 (0) 7810711008</p>
-                    <p>✉️ <a href="mailto:murfee25@yahoo.co.uk" class="hover:underline">murfee25@yahoo.co.uk</a></p>
+                <h1 class="text-5xl md:text-6xl font-bold tracking-tight">Danny Murphy</h1>
+                <p class="text-2xl md:text-3xl text-blue-600 dark:text-blue-400 mt-2">Full Stack Developer</p>
+                <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+                    <div>📍 Reading, UK</div>
+                    <div>📱 +44 (0) 7810711008</div>
+                    <div>✉️ <a href="mailto:murfee25@yahoo.co.uk" class="hover:underline">murfee25@yahoo.co.uk</a></div>
                 </div>
             </div>
-            <div class="flex gap-3">
+            <div class="flex gap-4">
                 <button onclick="window.print()" 
-                        class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg flex items-center gap-2 print:hidden">
-                    <i class="fas fa-download"></i> Download PDF
+                        class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl flex items-center gap-3 transition-all">
+                    <i class="fas fa-download"></i>
+                    <span>Download PDF</span>
                 </button>
-                <button id="theme-toggle"
-                        class="p-3 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-xl">
-                    <i class="fas fa-moon text-xl"></i>
+                <button id="theme-toggle" 
+                        class="p-4 bg-gray-200 dark:bg-gray-800 rounded-2xl hover:scale-110 transition-all">
+                    <i class="fas fa-moon text-2xl"></i>
                 </button>
             </div>
         </header>
 
         <!-- Profile -->
-        <section class="mb-10">
-            <h2 class="text-2xl font-semibold mb-3 border-b border-gray-300 dark:border-gray-700 pb-2">Profile</h2>
-            <p class="text-lg leading-relaxed">
+        <section class="section mb-12">
+            <h2 class="text-3xl font-semibold mb-4">Profile</h2>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
                 A highly skilled IT professional with extensive experience in designing and developing high-level technical solutions. 
-                Proficient in the full development life-cycle and equipped with strong analytical, problem-solving, and communication skills.
+                Proficient in full development life-cycle and equipped with strong analytical, problem-solving, and communication skills.
             </p>
         </section>
 
         <!-- Selected Achievements -->
-        <section class="mb-10">
-            <h2 class="text-2xl font-semibold mb-4">Selected Achievements</h2>
-            <ul class="grid grid-cols-1 gap-3 text-[15px]">
-                <li class="flex gap-3"><span class="text-green-500">•</span> Redevelopment of Parliament application using Postgres, Elasticsearch, NestJS, React, GitLab CI/CD & Terraform</li>
-                <li class="flex gap-3"><span class="text-green-500">•</span> Implemented Keycloak as replacement identity provider with SAML, OIDC, LDAP & SCIM</li>
-                <li class="flex gap-3"><span class="text-green-500">•</span> Built scalable browser automation and scraping pipelines in GCP and for German/EU laws</li>
-                <li class="flex gap-3"><span class="text-green-500">•</span> Developed custom Google Data Studio visualisations using SigmaJS and 3D force graphs</li>
-                <li class="flex gap-3"><span class="text-green-500">•</span> Led redevelopment of teeofftimes.co.uk using EPiServer CMS</li>
+        <section class="section mb-12">
+            <h2 class="text-3xl font-semibold mb-6">Selected Achievements</h2>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-[15.5px]">
+                <li class="flex gap-3"><span class="text-emerald-500 mt-1">▸</span>Contributed to redevelopment of Parliament application using Postgres, Elasticsearch, NestJS, React, GitLab CI/CD & Terraform</li>
+                <li class="flex gap-3"><span class="text-emerald-500 mt-1">▸</span>Implemented Keycloak as replacement identity provider (SAML, OIDC, LDAP, SCIM)</li>
+                <li class="flex gap-3"><span class="text-emerald-500 mt-1">▸</span>Built automated scraping pipelines for German and EU laws</li>
+                <li class="flex gap-3"><span class="text-emerald-500 mt-1">▸</span>Implemented scalable browser automation with Puppeteer in GCP</li>
+                <li class="flex gap-3"><span class="text-emerald-500 mt-1">▸</span>Developed custom Google Data Studio visualisations using SigmaJS and 3d-force-graph</li>
+                <li class="flex gap-3"><span class="text-emerald-500 mt-1">▸</span>Led redevelopment of teeofftimes.co.uk using EPiServer CMS</li>
             </ul>
         </section>
 
         <!-- Skills -->
-        <section class="mb-10">
-            <h2 class="text-2xl font-semibold mb-4">Key Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-sm">
-                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">Programming</h3>
-                    <p class="text-sm leading-relaxed">C#, Python, Node.js, ASP.NET Core, Angular, React, TypeScript, GraphQL, PowerShell</p>
+        <section class="section mb-12">
+            <h2 class="text-3xl font-semibold mb-6">Key Skills</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-3xl border border-gray-200 dark:border-gray-800">
+                    <h3 class="font-semibold text-lg mb-4 text-blue-600 dark:text-blue-400">Programming</h3>
+                    <p class="leading-relaxed">C#, Python, Node.js, ASP.NET Core, Angular, React, TypeScript, GraphQL, PowerShell</p>
                 </div>
-                <div class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-sm">
-                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">Databases & Data</h3>
-                    <p class="text-sm leading-relaxed">BigQuery, PostgreSQL, Elasticsearch, MongoDB, Firestore, SQL Server</p>
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-3xl border border-gray-200 dark:border-gray-800">
+                    <h3 class="font-semibold text-lg mb-4 text-blue-600 dark:text-blue-400">Databases</h3>
+                    <p class="leading-relaxed">BigQuery, PostgreSQL, Firestore, SQL Server, Elasticsearch, MongoDB</p>
                 </div>
-                <div class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-sm">
-                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">Tools & Cloud</h3>
-                    <p class="text-sm leading-relaxed">Docker, Kubernetes, Terraform, Pulumi, GitHub Actions, GitLab CI/CD, Azure, GCP</p>
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-3xl border border-gray-200 dark:border-gray-800">
+                    <h3 class="font-semibold text-lg mb-4 text-blue-600 dark:text-blue-400">Tools & Cloud</h3>
+                    <p class="leading-relaxed">Docker, Kubernetes, Terraform, Pulumi, GitHub Actions, GitLab CI/CD, Azure, GCP</p>
                 </div>
             </div>
         </section>
 
         <!-- Experience -->
-        <section class="mb-10">
-            <h2 class="text-2xl font-semibold mb-6">Professional Experience</h2>
+        <section class="section mb-12">
+            <h2 class="text-3xl font-semibold mb-8">Professional Experience</h2>
             
-            <div class="space-y-8">
-                <div>
-                    <div class="flex justify-between items-baseline">
-                        <h3 class="text-xl font-semibold">Glomas GmbH — Full Stack Developer</h3>
-                        <span class="text-sm text-gray-500 dark:text-gray-400">Aug 2024 – Present</span>
+            <div class="space-y-10">
+                <!-- Glomas -->
+                <div class="job-card bg-white dark:bg-gray-900 p-7 rounded-3xl border border-gray-200 dark:border-gray-800">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-semibold">Glomas GmbH — Full Stack Developer</h3>
+                            <p class="text-blue-600 dark:text-blue-400">August 2024 – Present</p>
+                        </div>
                     </div>
-                    <ul class="mt-3 list-disc pl-5 space-y-2 text-[15px]">
-                        <li>Contributing to redevelopment of Parliament application (replacing legacy STAR DB) using Postgres, Elasticsearch, NestJS, React, GitLab CI/CD & Terraform on Hetzner</li>
-                        <li>Implemented Keycloak as replacement identity provider (SAML, OIDC, LDAP, SCIM)</li>
-                        <li>Automated scraping pipelines for German and EU laws into MongoDB</li>
+                    <ul class="mt-5 space-y-3 list-disc pl-5 text-[15.2px]">
+                        <li>Contributing to redevelopment of Parliament application (replacing legacy STAR DB) with Postgres, Elasticsearch, NestJS, React, GitLab CI/CD & Terraform on Hetzner</li>
+                        <li>Reviewed, recommended and implemented Keycloak as replacement identity provider (SSO via SAML & OIDC, LDAP, SCIM)</li>
+                        <li>Automated pipelines to scrape German and EU laws into MongoDB master dataset</li>
                     </ul>
                 </div>
 
-                <div>
-                    <div class="flex justify-between items-baseline">
-                        <h3 class="text-xl font-semibold">Insaas GmbH — Principal Engineer</h3>
-                        <span class="text-sm text-gray-500 dark:text-gray-400">Apr 2022 – Jul 2024</span>
+                <!-- Insaas -->
+                <div class="job-card bg-white dark:bg-gray-900 p-7 rounded-3xl border border-gray-200 dark:border-gray-800">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-semibold">Insaas GmbH — Principal Engineer</h3>
+                            <p class="text-blue-600 dark:text-blue-400">April 2022 – July 2024</p>
+                        </div>
                     </div>
-                    <ul class="mt-3 list-disc pl-5 space-y-2 text-[15px]">
-                        <li>Built scalable data acquisition, cleaning and LLM analysis pipelines in GCP (Cloud Composer, Dataflow, Cloud Functions)</li>
+                    <ul class="mt-5 space-y-3 list-disc pl-5 text-[15.2px]">
+                        <li>Built data pipelines in GCP using Cloud Composer (Airflow), Dataflow (Beam) and Cloud Functions</li>
                         <li>Developed ML Annotator Web App (Angular + Node.js) and Feedback Web App (ASP.NET Core MVC)</li>
-                        <li>Implemented scalable browser automation using Puppeteer in GCP Cloud Functions</li>
+                        <li>Implemented scalable browser automation for web scraping using Puppeteer in GCP</li>
                         <li>Created custom Community Visualisations for Google Data Studio using SigmaJS and 3d-force-graph</li>
-                        <li>Used Pulumi for IaC provisioning of GCP resources</li>
+                        <li>Used Pulumi for Infrastructure as Code on GCP</li>
                     </ul>
                 </div>
 
-                <div>
-                    <div class="flex justify-between items-baseline">
-                        <h3 class="text-xl font-semibold">Thames Water — Senior Software Engineer</h3>
-                        <span class="text-sm text-gray-500 dark:text-gray-400">Apr 2021 – Apr 2022</span>
+                <!-- Add remaining roles similarly (shortened for space but complete) -->
+                <div class="job-card bg-white dark:bg-gray-900 p-7 rounded-3xl border border-gray-200 dark:border-gray-800">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-semibold">Thames Water — Senior Software Engineer</h3>
+                            <p class="text-blue-600 dark:text-blue-400">April 2021 – April 2022</p>
+                        </div>
                     </div>
-                    <ul class="mt-3 list-disc pl-5 space-y-2 text-[15px]">
-                        <li>Enhanced user journeys using .NET Core microservices and React micro-frontends with Sitecore CMS</li>
-                        <li>Built C# web APIs and React components</li>
-                        <li>Integrated with SAP backend systems</li>
-                        <li>Worked in Kubernetes environment on Azure</li>
+                    <ul class="mt-5 space-y-3 list-disc pl-5 text-[15.2px]">
+                        <li>Enhanced user journeys with .NET Core microservices and React micro-frontends on Sitecore CMS</li>
+                        <li>Built C# APIs and React components with SAP integrations</li>
+                        <li>Kubernetes hosting on Azure</li>
                     </ul>
                 </div>
 
-                <div>
-                    <div class="flex justify-between items-baseline">
-                        <h3 class="text-xl font-semibold">Audatex UK — Senior Software Engineer</h3>
-                        <span class="text-sm text-gray-500 dark:text-gray-400">Oct 2019 – Apr 2021</span>
+                <div class="job-card bg-white dark:bg-gray-900 p-7 rounded-3xl border border-gray-200 dark:border-gray-800">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-semibold">Audatex UK — Senior Software Engineer</h3>
+                            <p class="text-blue-600 dark:text-blue-400">Oct 2019 – Apr 2021</p>
+                        </div>
                     </div>
-                    <ul class="mt-3 list-disc pl-5 space-y-2 text-[15px]">
-                        <li>Delivered features using .NET Core Web API microservices, RabbitMQ, Azure Service Bus, SQL & PostgreSQL</li>
-                        <li>Implemented CI/CD pipelines with Azure DevOps and Octopus Deploy</li>
+                    <ul class="mt-5 space-y-3 list-disc pl-5 text-[15.2px]">
+                        <li>Delivered features using .NET Core microservices, RabbitMQ, Azure Service Bus, SQL & PostgreSQL</li>
+                        <li>Implemented CI/CD with Azure DevOps and Octopus Deploy</li>
                     </ul>
                 </div>
 
-                <div>
-                    <div class="flex justify-between items-baseline">
-                        <h3 class="text-xl font-semibold">GfK OPI — Senior Web Developer</h3>
-                        <span class="text-sm text-gray-500 dark:text-gray-400">Mar 2016 – May 2019</span>
+                <div class="job-card bg-white dark:bg-gray-900 p-7 rounded-3xl border border-gray-200 dark:border-gray-800">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-semibold">GfK OPI — Senior Web Developer</h3>
+                            <p class="text-blue-600 dark:text-blue-400">Mar 2016 – May 2019</p>
+                        </div>
                     </div>
-                    <ul class="mt-3 list-disc pl-5 space-y-2 text-[15px]">
-                        <li>Full stack development of Retail Intelligence platform using Elasticsearch, ASP.NET MVC and JavaScript</li>
+                    <ul class="mt-5 space-y-3 list-disc pl-5 text-[15.2px]">
+                        <li>Full stack development of Retail Intelligence platform (Elasticsearch, ASP.NET MVC, JS)</li>
                         <li>Merged Chrome & Firefox extensions into single Angular codebase</li>
-                        <li>Upgraded Elasticsearch cluster and migrated to NEST client</li>
+                        <li>Upgraded Elasticsearch cluster to 5.x and migrated to NEST client</li>
                     </ul>
                 </div>
 
-                <div>
-                    <div class="flex justify-between items-baseline">
-                        <h3 class="text-xl font-semibold">Golfbreaks.com — Senior Web Developer</h3>
-                        <span class="text-sm text-gray-500 dark:text-gray-400">Mar 2013 – Mar 2016</span>
-                    </div>
-                    <ul class="mt-3 list-disc pl-5 space-y-2 text-[15px]">
-                        <li>Led redevelopment of teeofftimes.co.uk using EPiServer CMS</li>
-                        <li>Automated build and deployment using TeamCity</li>
-                    </ul>
+                <!-- Older roles -->
+                <div class="text-sm text-gray-500 dark:text-gray-400 pl-4 border-l-2 border-gray-300 dark:border-gray-700 space-y-6 mt-8">
+                    <div>Golfbreaks.com — Senior Web Developer (2013 – 2016)</div>
+                    <div>TPoint Solutions Ltd — Solutions Developer (2012 – 2013)</div>
+                    <div>IRIS Accountancy Solutions — Senior Software Engineer (2004 – 2012)</div>
                 </div>
             </div>
         </section>
 
         <!-- Education -->
-        <section>
-            <h2 class="text-2xl font-semibold mb-4">Education & Certifications</h2>
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
-                <p class="font-semibold">BSc (Hons) Computer Applications</p>
+        <section class="section">
+            <h2 class="text-3xl font-semibold mb-6">Education & Certifications</h2>
+            <div class="bg-white dark:bg-gray-900 p-8 rounded-3xl border border-gray-200 dark:border-gray-800">
+                <p class="font-semibold text-lg">BSc (Hons) Computer Applications</p>
                 <p class="text-gray-600 dark:text-gray-400">MTU (Cork Institute of Technology), Cork, Ireland — 2001</p>
-                <div class="mt-6 space-y-3">
-                    <p><strong>MCTS:</strong> .NET 3.5 Windows Presentation Foundation (2010)</p>
-                    <p><strong>MCP/MCTS:</strong> .NET 2.0 Windows & Distributed Applications (2008)</p>
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                    <div><strong>MCTS:</strong> .NET 3.5 Windows Presentation Foundation (2010)</div>
+                    <div><strong>MCP/MCTS:</strong> .NET 2.0 Windows & Distributed Applications (2008)</div>
                 </div>
             </div>
         </section>
     </div>
 
-    <footer class="text-center py-8 text-sm text-gray-500 dark:text-gray-400">
+    <footer class="text-center py-12 text-sm text-gray-500 dark:text-gray-400">
         © 2026 Danny Murphy • References available on request
     </footer>
 
     <script>
-        // Tailwind script already loaded via CDN
+        // Tailwind + Animations
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => observer.observe(section));
+
+        // Theme Toggle
         const toggle = document.getElementById('theme-toggle');
         const icon = toggle.querySelector('i');
-        
         toggle.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
-            if (icon.classList.contains('fa-moon')) {
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-            } else {
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
-            }
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
         });
     </script>
 </body>
